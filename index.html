@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Design Resources</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="page-wrap">
+
+        <div id="main-wrap">
+
+            <div class="header">
+                <h1>Web Design Resources</h1>
+                <p>Please add your favourite web-based CSS/Web design tools</p>
+            </div>
+            <div id="content-header">
+                <button id="delete-content-button" class="button" onclick="handleDeleteContentClick()">
+                    <div id="delete-content-button-animation-el">
+                        <p>Delete</p>
+                        <button id="add-content-button" class="button" onclick="handleNewContentClick()">
+                            <div id="add-content-button-animation-el">
+                                <p>Add Site</p>
+                            </div>
+                        </button>
+                        <button id="refresh-content-button" class="button" onclick="refresh()">
+                            <div id="refresh-content-button-animation-el">
+                                <p>↻</p>
+                            </div>
+                        </button>
+
+                    </div>
+
+                    <div class="main">
+                        <div id="delete-item-check-wrap">
+                            <p id="delete-item-p">Delete site?</p>
+                            <div id="delete-item-button-container">
+                                <button id="delete-item-delete">Delete</button>
+                                <button id="delete-item-cancel" onclick="handleDeleteContentCancel()">Cancel</button>
+                            </div>
+                        </div>
+                        <div id="main-content-wrap">
+                            <div id="boxes-wrap" style="display: flex;">
+                                <!-- <div class="site-content-wrap"
+                            style="transition: transform 0.2s ease-in-out 0s; transform: rotate(0deg);">
+                            <img class="site-img"
+                                src="https://s2.googleusercontent.com/s2/favicons?sz=64&amp;domain_url=https://youtube.com"
+                                id="image-0">
+                            <p class="site-description">Test Card</p>
+                            <div class="site-highlight"
+                                style="transition: all 0.1s ease-in-out 0s; left: -20%; top: -20%;">
+                            </div>
+                        </div> -->
+
+                            </div>
+
+                            <div id="pop-up">
+                                <form id="pop-up-form" onsubmit="handleForm();return false">
+                                    <h1>Enter website details</h1>
+                                    <div id="form-url-wrap">
+                                        <label>URL:</label>
+                                        <input id="pop-up-form-url-input" type="url" placeholder="https://example.com"
+                                            required="yes">
+                                    </div>
+                                    <div id="form-description-wrap">
+                                        <label>Description:</label>
+                                        <textarea required="yes" maxlength="100" type="text"
+                                            placeholder="Describe the website here..."
+                                            id="pop-up-form-description-input"></textarea>
+                                    </div>
+                                    <input type="submit" id="form-button" value="Submit">
+                                </form>
+                            </div>
+                            <div id="loading-wrap">
+                                <div id="loading-text">Loading</div>
+                            </div>
+                        </div>
+
+                    </div>
+            </div>
+            <div class="sidebar-left">
+
+            </div>
+            <div class="sidebar-right" id="sidebar-right">
+            </div>
+            <div class="sidebar-overlay"></div>
+        </div>
+        <script src="main.js"></script>
+</body>
+
+</html>

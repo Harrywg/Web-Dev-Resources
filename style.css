@@ -1,0 +1,873 @@
+:root {
+    /* Colour Palette */
+    --violet: #34323d;
+    --blue: #A3C4BC;
+    --green: #BFD7B5;
+    --cream: #E7EFC5;
+    --beige: #e2a84a;
+    --black: #272727;
+}
+
+/* ---Scroll--- */
+* {
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+/* ---End Scroll--- */
+
+body {
+    background: var(--black);
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 3rem;
+    filter: drop-shadow(2px 2px 2px black);
+    margin: 0;
+}
+
+.header>p {
+    margin: 0;
+    text-align: left;
+    filter: drop-shadow(2px 2px 2px black);
+
+}
+
+.header {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: var(--black);
+    color: var(--cream);
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.main {
+    background-color: var(--violet);
+    padding: 1rem;
+    max-width: 60rem;
+
+    height: 70vh;
+    margin: auto;
+    box-shadow: inset 0 0 200px black;
+    border: 10px solid rgb(27, 27, 27);
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+    pointer-events: all;
+    margin-top: -10rem;
+    overflow: scroll;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.444))
+}
+
+
+
+#main-content-wrap {
+    position: relative;
+    width: 100%;
+
+}
+
+#content-header {
+    height: 60px;
+    max-width: 60rem;
+    padding: 0 1rem;
+    padding-bottom: 10rem;
+    /* padding offset with main-content-wrap */
+
+    margin: auto;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 4px;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: #a1a1a100;
+    min-height: 0;
+    min-width: 0;
+
+}
+
+#content-header>* {}
+
+#delete-content-button {
+
+    outline: none;
+    transform: translateX(0);
+
+    background-color: var(--black);
+    width: 85px;
+    height: 40px;
+    border-radius: 30px;
+    color: var(--black);
+    border: 4px solid var(--black);
+    transition: 0.1s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#delete-content-button>div>p {
+    font-family: 'Share Tech Mono', monospace;
+    position: fixed;
+    margin: 0;
+    z-index: 1000;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#delete-content-button::before {
+    content: "";
+    background-image: url("images/bin-icon.png");
+    height: 25px;
+    width: 26px;
+    background-size: cover;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    color: grey;
+    z-index: -10000;
+}
+
+#delete-content-button:hover::before {
+    content: "";
+    display: block;
+    background-image: url("images/bin-icon.png");
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    color: var(--cream);
+    z-index: -10000;
+}
+
+
+#delete-content-button-animation-el {
+
+    position: absolute;
+    top: 50px;
+    left: -20px;
+    height: 60px;
+    width: 150%;
+    background-color: var(--cream);
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    z-index: -10000;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+}
+
+#delete-content-button:hover>div {
+    top: -20%;
+}
+
+
+
+#delete-content-button:hover {
+    color: var(--black);
+    border: 4px solid var(--black);
+    box-shadow: 0px 0px 10px var(--cream);
+}
+
+#add-content-button {
+
+    outline: none;
+    transform: translateX(0);
+
+    background-color: var(--black);
+    width: 85px;
+    height: 40px;
+    border-radius: 30px;
+    color: var(--black);
+    border: 4px solid var(--black);
+    transition: 0.1s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#add-content-button>div>p {
+    font-family: 'Share Tech Mono', monospace;
+    position: fixed;
+    margin: 0;
+    z-index: 1000;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#add-content-button::before {
+    display: block;
+    content: '+';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    color: grey;
+    z-index: -10000;
+}
+
+#add-content-button:hover::before {
+    display: block;
+    content: '+';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    color: var(--cream);
+    z-index: -10000;
+}
+
+
+#add-content-button-animation-el {
+
+    position: absolute;
+    top: 50px;
+    left: -20px;
+    height: 60px;
+    width: 150%;
+    background-color: var(--cream);
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    z-index: -10000;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+}
+
+#add-content-button:hover>div {
+    top: -20%;
+}
+
+
+
+#add-content-button:hover {
+    color: var(--black);
+    border: 4px solid var(--black);
+    box-shadow: 0px 0px 10px var(--cream);
+}
+
+#refresh-content-button {
+
+
+    outline: none;
+    transform: translateX(0%);
+    background-color: var(--black);
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
+    color: var(--black);
+    border: 4px solid var(--black);
+    transition: 0.1s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+
+.button:active {
+    transform: scale(0.8) !important;
+
+
+}
+
+#refresh-content-button>div>p {
+    font-family: 'Share Tech Mono', monospace;
+    position: fixed;
+    margin: 0;
+    z-index: 1000;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+    white-space: nowrap;
+    font-size: 30px;
+
+}
+
+#refresh-content-button::before {
+    display: block;
+    content: '↻';
+    position: absolute;
+    left: 50%;
+    top: calc(50%);
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    color: grey;
+    z-index: -10000;
+}
+
+#refresh-content-button:hover::before {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: var(--cream);
+    z-index: -10000;
+}
+
+
+#refresh-content-button-animation-el {
+
+    position: absolute;
+    top: 50px;
+    left: -1px;
+    height: 60px;
+    width: 150%;
+    background-color: var(--cream);
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    z-index: -10000;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+}
+
+#refresh-content-button:hover>div {
+    top: -20%;
+}
+
+
+
+#refresh-content-button:hover {
+    color: var(--black);
+    border: 4px solid var(--black);
+    box-shadow: 0px 0px 10px var(--cream);
+}
+
+#boxes-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+}
+
+#boxes-wrap>* {
+    pointer-events: all;
+}
+
+#boxes-wrap:hover {
+    color: #9c9c9c;
+}
+
+
+.site-content-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 8rem;
+    height: 10rem;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: var(--black);
+    color: var(--cream);
+    /* transition: 0.1s; */
+    font-weight: bold;
+    user-select: none;
+    cursor: pointer;
+    overflow: hidden;
+
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.474));
+
+    border-radius: 0.5rem;
+}
+
+.site-content-wrap-static {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 8rem;
+    height: 10rem;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: var(--black);
+    color: var(--cream);
+    /* transition: 0.1s; */
+    font-weight: bold;
+    user-select: none;
+    /* cursor: pointer; */
+    overflow: hidden;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.474));
+    border-radius: 0.5rem;
+}
+
+.site-content-wrap:hover {
+    filter: drop-shadow(0px 0px 10px var(--cream));
+
+}
+
+.site-content-wrap-delete:hover {
+    filter: drop-shadow(0px 0px 10px red) !important;
+
+}
+
+.site-img {
+    height: 40px;
+    margin: auto;
+    pointer-events: none;
+}
+
+.site-description {
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.site-description::after {
+    position: absolute;
+    content: '';
+    display: block;
+    margin-top: -1.5rem;
+    width: 9rem;
+    height: 1.5rem;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 65%, var(--black)95%);
+    /* background-color: red; */
+    ;
+}
+
+.site-highlight {
+    transition: 0.1s ease-in-out;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -20%;
+    left: -20%;
+    border-radius: 50%;
+    background-color: #c1c1c175;
+    opacity: 0.1;
+    pointer-events: none;
+    filter: blur(20px);
+
+}
+
+.site-delete {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.site-delete::before {
+    opacity: 0%;
+    content: url("images/bin-icon-red.png");
+    display: block;
+    height: 50px;
+    width: 50px;
+    margin: 0.5rem;
+    transform: scale(0.8)
+}
+
+.site-delete:hover {}
+
+.site-delete:hover::before {
+    opacity: 100%;
+}
+
+.sidebar-left {
+    display: none
+}
+
+.sidebar-right {
+    display: none
+}
+
+@media(min-width: 1500px) {
+    .sidebar-right {
+        position: absolute;
+        height: 98vh;
+        right: 0;
+        top: 0;
+        width: 15rem;
+
+        padding: 4rem 1rem;
+        padding-top: 270px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #1c1c1c;
+        font-family: 'Share Tech Mono', monospace;
+        color: var(--cream)
+    }
+
+    .sidebar-right-wrap {
+        padding: 2rem 1rem;
+        width: 208px;
+        overflow-wrap: break-word;
+    }
+
+    .sidebar-left {
+        position: absolute;
+        height: 98vh;
+        left: 0;
+        top: 0;
+        width: 15rem;
+        padding: 1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column-reverse;
+        background-color: #1c1c1c;
+    }
+
+    .sidebar-overlay {
+        position: absolute;
+        height: 98vh;
+        left: 0;
+        top: 0;
+        width: 15rem;
+        padding: 1rem;
+        pointer-events: none;
+
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 65%, #1c1c1c 95%);
+
+    }
+
+
+    .sidebar-left>p {
+        margin: 0;
+        margin-top: 1rem;
+        font-family: 'Share Tech Mono', monospace;
+        font-size: 1.2rem;
+        color: var(--cream);
+        white-space: nowrap;
+    }
+
+    .sidebar-iframe {
+
+        position: absolute;
+        width: calc(17rem*3);
+        aspect-ratio: 16/12;
+        transform: scale(0.33);
+        top: -150px;
+        overflow: hidden;
+        border: 0;
+    }
+}
+
+@media (min-width: 1500px) and (max-width: 1900px) {
+    .sidebar-left {
+        display: none;
+    }
+
+    .sidebar-overlay {
+        display: none;
+    }
+
+    #main-wrap {
+
+        width: 80vw;
+    }
+}
+
+#pop-up {
+    display: none;
+    pointer-events: all;
+}
+
+.pop-up-active {
+    display: block !important;
+}
+
+#pop-up-form {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 50px;
+
+}
+
+#pop-up-form>h1 {
+    text-align: center;
+    color: var(--cream);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: auto;
+    margin-bottom: 2rem;
+
+}
+
+#pop-up-form label {
+    width: 50%;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.3rem;
+    color: var(--cream);
+    filter: drop-shadow(1px 1px 1px black);
+    font-weight: 400;
+}
+
+#form-url-wrap {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+}
+
+#form-button {
+    width: 7rem;
+    height: 3rem;
+    margin: auto;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: var(--cream);
+    font-size: 1.2rem;
+    border: 2px solid var(--cream);
+    transition: 0.1s;
+    box-shadow: 0 0 10px black;
+}
+
+#form-button:hover {
+    box-shadow: 0 0 20px whitesmoke;
+    cursor: pointer;
+}
+
+#form-button:active {
+    transform: scale(0.9);
+}
+
+
+#form-description-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+#pop-up-form-description-input {
+    margin-top: 0.5rem;
+    resize: none;
+    height: 4rem;
+    font-size: 1rem;
+    font-family: 'Share Tech Mono', monospace;
+
+}
+
+#pop-up-form-url-input {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    width: 110%;
+
+}
+
+#back-content-button {
+    outline: none;
+    transform: translateX(-0%);
+    background-color: var(--black);
+    margin: 10px;
+    width: 85px;
+    height: 40px;
+    border-radius: 30px;
+    color: var(--black);
+    border: 4px solid var(--black);
+    transition: 0.1s;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#back-content-button>div>p {
+    font-family: 'Share Tech Mono', monospace;
+    position: fixed;
+    margin: 0;
+    z-index: 1000;
+    top: 7px;
+
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+}
+
+#back-content-button::before {
+    display: block;
+    content: '←';
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    color: grey;
+    z-index: -10000;
+}
+
+#back-content-button:hover::before {
+    display: block;
+    content: '←';
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    color: var(--cream);
+    z-index: -10000;
+}
+
+
+#back-content-button-animation-el {
+
+    position: absolute;
+    top: 50px;
+    left: -20px;
+    height: 60px;
+    width: 150%;
+    background-color: var(--cream);
+    transition: 0.2s;
+    transition-timing-function: ease-in-out;
+    z-index: -10000;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+}
+
+#back-content-button:hover>div {
+    top: -20%;
+}
+
+
+
+#back-content-button:hover {
+    color: var(--black);
+    border: 4px solid var(--black);
+    box-shadow: 0px 0px 10px var(--cream);
+}
+
+#loading-wrap {
+
+    height: 20vh;
+    width: 100px;
+    margin: auto;
+    display: none;
+
+    align-items: center;
+}
+
+#loading-text {
+    text-align: left;
+    font-family: 'Share Tech Mono', monospace;
+    color: #9c9c9c;
+    font-size: 1.5rem;
+
+}
+
+#delete-item-check-wrap {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 30vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Open Sans', sans-serif;
+    color: var(--cream);
+}
+
+#delete-item-check-wrap p {
+    filter: drop-shadow(1px 1px 5px black)
+}
+
+
+#delete-item-check-wrap div {
+    width: 20rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#delete-item-check-wrap button {
+    width: 7rem;
+    height: 3rem;
+    margin: auto;
+    margin-top: 2rem;
+    border-radius: 2rem;
+    background-color: transparent;
+    color: var(--cream);
+    font-size: 1.2rem;
+    border: 2px solid var(--cream);
+    transition: 0.1s;
+    box-shadow: 0 0 10px black;
+}
+
+#delete-item-delete {
+    color: red !important;
+    border-color: red !important;
+}
+
+#delete-item-delete:hover {
+    box-shadow: 0 0 20px rgb(255, 0, 0) !important;
+
+}
+
+#delete-item-check-wrap button:hover {
+    box-shadow: 0 0 20px whitesmoke;
+    cursor: pointer;
+}
+
+#delete-item-check-wrap button:active {
+    transform: scale(0.9);
+}
+
+#deleting-content {
+    text-align: center;
+    background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(106, 106, 106) 50%, rgb(255, 0, 0) 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-family: 'Share Tech Mono', monospace;
+    animation: deleting-content 20s infinite linear;
+    font-size: 1.2rem;
+    font-weight: bold;
+    filter: drop-shadow(0px 0px 3px black)
+}
+
+
+@keyframes deleting-content {
+    0% {
+        background-position-x: 0px;
+
+    }
+
+    50% {
+        background-position-x: 500px;
+    }
+
+    100% {
+        background-position-x: 0px;
+
+    }
+
+}
+
+.blur-content {
+    filter: blur(3px);
+}
