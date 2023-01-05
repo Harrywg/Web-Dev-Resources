@@ -202,7 +202,7 @@ function deleteThisContent(props) {
     text.innerText = `Delete ${elTitle}?`
 
     deleteButton.onclick = () => {
-        fetch(`http://localhost:1337/api/sites/${el.id}`, {
+        fetch(`https://strapi-production-e449.up.railway.app/api/sites/${el.id}`, {
             method: 'DELETE',
         })
             .then(res => {
@@ -257,7 +257,7 @@ function postData(url, description) {
             "description": description
         }
     }
-    fetch('http://localhost:1337/api/sites/', {
+    fetch('https://strapi-production-e449.up.railway.app/api/sites/', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
@@ -318,7 +318,7 @@ async function getData() {
     if (!getDataAlreadyActive) {
         loadingScreenOn();
         getDataAlreadyActive = true;
-        fetch('http://localhost:1337/api/sites/')
+        fetch('https://strapi-production-e449.up.railway.app/api/sites/')
             .then(res => res.json())
             .then(data => displayData(data.data))
         async function displayData(data) {
