@@ -36,6 +36,7 @@ h1 {
 
 .header>p {
     margin: 0;
+    text-align: center !important;
     text-align: left;
     filter: drop-shadow(2px 2px 2px black);
 
