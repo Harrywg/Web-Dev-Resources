@@ -872,3 +872,71 @@ h1 {
 .blur-content {
     filter: blur(3px);
 }
+
+@media only screen and (hover: none) and (pointer: coarse) {
+    #add-content-button:before {
+        display: block;
+        content: '+';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 35px;
+        color: var(--black);
+        z-index: -10000;
+    }
+
+    #add-content-button {
+        background: var(--cream);
+        color: var(--black);
+        border: 4px solid var(--black);
+        box-shadow: 0px 0px 5px var(--cream);
+    }
+
+    #delete-content-button::before {
+        content: "";
+        background-image: url("images/bin-icon.png");
+        height: 25px;
+        width: 26px;
+        background-size: cover;
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 35px;
+        color: grey;
+        z-index: -10000;
+    }
+
+    #delete-content-button-animation-el {
+        top: -20%;
+    }
+
+    #delete-content-button {
+        color: var(--black);
+        border: 4px solid var(--black);
+        box-shadow: 0px 0px 5px var(--cream);
+        background-color: var(--cream)
+    }
+
+    #refresh-content-button:before {
+        display: block;
+        content: '↻';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 35px;
+        color: var(--black);
+        z-index: -10000;
+    }
+
+    #refresh-content-button {
+        background: var(--cream);
+        color: var(--black);
+        border: 4px solid var(--black);
+        box-shadow: 0px 0px 5px var(--cream);
+    }
+
+}
