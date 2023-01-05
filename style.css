@@ -875,7 +875,7 @@ h1 {
 @media only screen and (hover: none) and (pointer: coarse) {
     #add-content-button:before {
         display: block;
-        content: '+';
+        content: '';
         position: absolute;
         left: 50%;
         top: 50%;
@@ -912,6 +912,14 @@ h1 {
         top: -20%;
     }
 
+    #add-content-button-animation-el {
+        top: -20%;
+    }
+
+    #refresh-content-button-animation-el {
+        top: -20%;
+    }
+
     #delete-content-button {
         color: var(--black);
         border: 4px solid var(--black);
@@ -921,7 +929,7 @@ h1 {
 
     #refresh-content-button:before {
         display: block;
-        content: '↻';
+        content: '';
         position: absolute;
         left: 50%;
         top: 50%;
