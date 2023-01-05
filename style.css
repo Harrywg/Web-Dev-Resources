@@ -273,7 +273,7 @@ h1 {
     outline: none;
     transform: translateX(0%);
     background-color: var(--black);
-    width: 40px;
+    width: 80px;
     height: 40px;
     border-radius: 30px;
     color: var(--black);
@@ -295,12 +295,11 @@ h1 {
     position: fixed;
     margin: 0;
     z-index: 1000;
-    top: -1px;
+    top: 7px;
     left: 50%;
     transform: translateX(-50%);
     font-weight: 600;
     white-space: nowrap;
-    font-size: 30px;
 
 }
 
