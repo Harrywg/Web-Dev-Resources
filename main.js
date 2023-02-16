@@ -185,8 +185,10 @@ function handleDeleteContentClick() {
         boxes[i].onclick = deleteThisContent;
     }
 }
-function deleteThisContent(props) {
-    let el = props.path[1];
+function deleteThisContent(e) {
+    console.log(e.srcElement);
+    let el = e.srcElement.parentElement;
+    console.log(el);
     let elTitle = el.children[2].innerText;
     let text = document.getElementById('delete-item-p');
     let wrap = document.getElementById('delete-item-check-wrap');
